@@ -69,3 +69,9 @@ Provider Blocks: Provider blocks are used to define and configure the cloud prov
 
 ### Terraform TFState File
 When we build infrastructure with terraform configuration, a state file will be created automatically in the local workspace directory named “terraform.tfstate”. This tfstate file will have information about the provisioned infrastructure which terraform manage. Whenever we make changes to the configuration file, it will automatically determine which part of your configuration is already created. And, also it will determine which needs to be changed with the help of the state file.
+
+### Terraform Backend with Locking
+In Terraform, a backend is a configuration that determines how state files are stored and accessed. The state file contains important information about the resources managed by Terraform, such as resource IDs, metadata, and dependencies. Using a backend is essential when you work in a team or across multiple environments to maintain a consistent and shared state.
+When multiple team members are working with Terraform concurrently, there's a possibility of conflicts if they try to modify the same infrastructure simultaneously. To prevent such conflicts and maintain data integrity, Terraform provides a locking mechanism for backends. Locking ensures that only one process can make changes to the infrastructure at a given time, while others are put on hold until the lock is released.
+
+By default, Terraform uses the "local" backend, which is the normal behavior of Terraform you're used to.
