@@ -53,6 +53,13 @@ This command instructs Terraform to update its state file by querying the infras
 terraform refresh
 `
 
+### terraform fmt
+This command is used to automatically format Terraform configuration files to ensure consistent and readable code
+
+`
+terraform fmt
+`
+
 ### HCL
 HCL (HashiCorp Configuration Language) is the primary language used for writing configuration files. HCL is used to define and configure infrastructure resources and settings in a declarative manner. Terraform uses HCL to interpret the infrastructure requirements specified in the configuration files and take appropriate actions to create, modify, or delete resources accordingly.
 
