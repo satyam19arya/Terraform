@@ -46,6 +46,13 @@ This command will display all the declared outputs and their corresponding value
 terraform output
 `
 
+### terraform refresh
+This command instructs Terraform to update its state file by querying the infrastructure resources currently in use. It does not make any changes to the resources themselves; instead, it updates the state to match the current real-world state of the infrastructure.
+
+`
+terraform refresh
+`
+
 ### HCL
 HCL (HashiCorp Configuration Language) is the primary language used for writing configuration files. HCL is used to define and configure infrastructure resources and settings in a declarative manner. Terraform uses HCL to interpret the infrastructure requirements specified in the configuration files and take appropriate actions to create, modify, or delete resources accordingly.
 
