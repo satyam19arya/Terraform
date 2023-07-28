@@ -60,6 +60,14 @@ This command is used to automatically format Terraform configuration files to en
 terraform fmt
 `
 
+### Terraform graph
+The terraform graph command is used to generate a visual representation of either a configuration or execution plan. The output is in the DOT format, which can easily be converted to an image by GraphViz to generate charts.
+
+`
+terraform graph | dot -Tsvg > graph.svg
+terraform graph | dot -Tpdf > graph.pdf
+`
+
 ### HCL
 HCL (HashiCorp Configuration Language) is the primary language used for writing configuration files. HCL is used to define and configure infrastructure resources and settings in a declarative manner. Terraform uses HCL to interpret the infrastructure requirements specified in the configuration files and take appropriate actions to create, modify, or delete resources accordingly.
 
