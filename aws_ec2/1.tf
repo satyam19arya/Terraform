@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "app_server" {
@@ -27,5 +27,5 @@ output "instance_id" {
 }
 
 output "ec2_public_ips" {
-    value = aws_instance.app_server.public_ip
+  value = aws_instance.app_server.public_ip
 }

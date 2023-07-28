@@ -8,12 +8,12 @@ terraform {
 }
 
 provider "github" {
-    token = ""
+  token = ""
 }
 
 resource "github_repository" "example" {
   name        = "example"
   description = "My awesome codebase"
-  visibility = "public"
-  auto_init  = false
+  visibility  = "public"
+  auto_init   = false
 }
