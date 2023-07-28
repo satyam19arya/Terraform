@@ -52,3 +52,6 @@ HCL (HashiCorp Configuration Language) is the primary language used for writing 
 Resource Blocks: HCL in Terraform uses resource blocks to define different types of infrastructure resources. Each resource block represents a specific resource type (e.g., AWS EC2 instance, Azure Virtual Machine, etc.) and contains key-value pairs that configure the resource.
 
 Provider Blocks: Provider blocks are used to define and configure the cloud providers or services that Terraform will interact with. A provider block specifies the necessary information, such as access credentials and region, to manage resources in that provider.
+
+### Terraform TFState File
+When we build infrastructure with terraform configuration, a state file will be created automatically in the local workspace directory named “terraform.tfstate”. This tfstate file will have information about the provisioned infrastructure which terraform manage. Whenever we make changes to the configuration file, it will automatically determine which part of your configuration is already created. And, also it will determine which needs to be changed with the help of the state file.
