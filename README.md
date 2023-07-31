@@ -5,7 +5,7 @@ Terraform is an open-source infrastructure as code (IaC) tool developed by Hashi
 A "provider" is a plugin that allows Terraform to interact with various cloud providers, services, or infrastructure platforms. In order to make provider available on Terraform we need to make a terraform init. This commands download any plugins we need for our providers.
 
 ### terraform init
-This command is used to initialize a working directory containing terraform configuration files. It is safe to run this command multiple times. This command will never delete your existing configuration or state during init.
+This commands download any plugins we need for our providers. It also initialize a working directory containing terraform configuration files.
 
 `
 terraform init 
