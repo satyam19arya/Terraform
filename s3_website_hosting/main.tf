@@ -116,3 +116,7 @@ resource "aws_s3_bucket_policy" "s3_access_policy" {
     ]
   })
 }
+
+output "cloudfront_domain_name" {
+  value = aws_cloudfront_distribution.s3_distribution.domain_name
+}
