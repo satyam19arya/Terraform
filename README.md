@@ -5,7 +5,7 @@ Terraform is an open-source infrastructure as code (IaC) tool developed by Hashi
 A "provider" is a plugin that allows Terraform to interact with various cloud providers, services, or infrastructure platforms. In order to make provider available on Terraform we need to make a terraform init. This commands download any plugins we need for our providers.
 
 ### terraform init
-This command is used to initialize a working directory containing terraform configuration files. It is safe to run this command multiple times. This command will never delete your existing configuration or state during init.
+This commands download any plugins we need for our providers. It also initialize a working directory containing terraform configuration files.
 
 `
 terraform init 
@@ -60,6 +60,14 @@ This command is used to automatically format Terraform configuration files to en
 terraform fmt
 `
 
+### Terraform graph
+The terraform graph command is used to generate a visual representation of either a configuration or execution plan. The output is in the DOT format, which can easily be converted to an image by GraphViz to generate charts.
+
+`
+terraform graph | dot -Tsvg > graph.svg
+terraform graph | dot -Tpdf > graph.pdf
+`
+
 ### HCL
 HCL (HashiCorp Configuration Language) is the primary language used for writing configuration files. HCL is used to define and configure infrastructure resources and settings in a declarative manner. Terraform uses HCL to interpret the infrastructure requirements specified in the configuration files and take appropriate actions to create, modify, or delete resources accordingly.
 
@@ -69,3 +77,9 @@ Provider Blocks: Provider blocks are used to define and configure the cloud prov
 
 ### Terraform TFState File
 When we build infrastructure with terraform configuration, a state file will be created automatically in the local workspace directory named “terraform.tfstate”. This tfstate file will have information about the provisioned infrastructure which terraform manage. Whenever we make changes to the configuration file, it will automatically determine which part of your configuration is already created. And, also it will determine which needs to be changed with the help of the state file.
+
+### Terraform Backend with Locking
+In Terraform, a backend is a configuration that determines how state files are stored and accessed. The state file contains important information about the resources managed by Terraform, such as resource IDs, metadata, and dependencies. Using a backend is essential when you work in a team or across multiple environments to maintain a consistent and shared state.
+When multiple team members are working with Terraform concurrently, there's a possibility of conflicts if they try to modify the same infrastructure simultaneously. To prevent such conflicts and maintain data integrity, Terraform provides a locking mechanism for backends. Locking ensures that only one process can make changes to the infrastructure at a given time, while others are put on hold until the lock is released.
+
+By default, Terraform uses the "local" backend, which is the normal behavior of Terraform you're used to.
