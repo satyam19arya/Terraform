@@ -60,6 +60,12 @@ This command is used to automatically format Terraform configuration files to en
 terraform fmt
 `
 
+### terraform apply -replace="" (terraform taint)
+The -replace option with terraform apply to force Terraform to replace an object even though there are no configuration changes that would require it.
+```
+terraform apply -replace="aws_instance.web"
+```
+
 ### Terraform graph
 The terraform graph command is used to generate a visual representation of either a configuration or execution plan. The output is in the DOT format, which can easily be converted to an image by GraphViz to generate charts.
 
@@ -69,6 +75,12 @@ apt install graphviz
 vi graph.dot
 cat graph.dot | dot -Tsvg > graph.svg
 `
+
+###  Debugging Terraform
+Terraform has detailed logs which can be enabled by setting the TF_LOG environment variable to any value.
+You can set TF_LOG to one of the log levels TRACE, DEBUG, INFO, WARN or ERROR to change the verbosity of the logs
+
+Note : To persist logged output you can set TF_LOG_PATH in order to force the log to always be appended to a specific file when logging is enabled
 
 ### HCL
 HCL (HashiCorp Configuration Language) is the primary language used for writing configuration files. HCL is used to define and configure infrastructure resources and settings in a declarative manner. Terraform uses HCL to interpret the infrastructure requirements specified in the configuration files and take appropriate actions to create, modify, or delete resources accordingly.
