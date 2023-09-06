@@ -64,16 +64,14 @@ terraform fmt
 The terraform graph command is used to generate a visual representation of either a configuration or execution plan. The output is in the DOT format, which can easily be converted to an image by GraphViz to generate charts.
 
 `
-terraform graph | dot -Tsvg > graph.svg
-terraform graph | dot -Tpdf > graph.pdf
+terraform graph | graph.dot
+apt install graphviz
+vi graph.dot
+cat graph.dot | dot -Tsvg > graph.svg
 `
 
 ### HCL
 HCL (HashiCorp Configuration Language) is the primary language used for writing configuration files. HCL is used to define and configure infrastructure resources and settings in a declarative manner. Terraform uses HCL to interpret the infrastructure requirements specified in the configuration files and take appropriate actions to create, modify, or delete resources accordingly.
-
-Resource Blocks: HCL in Terraform uses resource blocks to define different types of infrastructure resources. Each resource block represents a specific resource type (e.g., AWS EC2 instance, Azure Virtual Machine, etc.) and contains key-value pairs that configure the resource.
-
-Provider Blocks: Provider blocks are used to define and configure the cloud providers or services that Terraform will interact with. A provider block specifies the necessary information, such as access credentials and region, to manage resources in that provider.
 
 ### Terraform TFState File
 When we build infrastructure with terraform configuration, a state file will be created automatically in the local workspace directory named “terraform.tfstate”. This tfstate file will have information about the provisioned infrastructure which terraform manage. Whenever we make changes to the configuration file, it will automatically determine which part of your configuration is already created. And, also it will determine which needs to be changed with the help of the state file.
